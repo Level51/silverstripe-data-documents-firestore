@@ -1,5 +1,6 @@
 {
   "name": "level51/silverstripe-data-documents-firestore",
+  "version": "0.1.0",
   "description": "Firestore Adapter for Data Documents",
   "type": "silverstripe-vendormodule",
   "keywords": [
