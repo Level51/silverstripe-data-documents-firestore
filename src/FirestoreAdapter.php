@@ -18,7 +18,9 @@ class FirestoreAdapter implements DataDocumentStore
             putenv('FIRESTORE_EMULATOR_HOST=' . $emulator);
         }
 
-        $credentials = json_decode(Environment::getEnv('GOOGLE_APPLICATION_CREDENTIALS'), true);
+        $credentialsReference = Environment::getEnv('GOOGLE_APPLICATION_CREDENTIALS');
+        $credentialsPayload = file_exists($credentialsReference) ? file_get_contents($credentialsReference) : $credentialsReference;
+        $credentials = json_decode($credentialsPayload, true);
         $config += [
             'keyFile' => $credentials
         ];
